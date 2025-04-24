@@ -54,17 +54,22 @@ function adicionarHabilidade () {
     const ul = document.querySelector("#skils")
     const li = document.createElement("li")
 
+    //botão para jogar o dado
     const jogar = document.createElement("input")
     jogar.type = "checkbox"
     jogar.className = "jogar"
     li.appendChild(jogar)
 
+    //Botão para remover
     const remover = document.createElement("button")
     remover.textContent = "remover"
     // remover.className = "remover
     li.appendChild(remover)
 
-    li.textContent = novaHab.value.trim()
+    //li.textContent = novaHab.value.trim() -> Essa parte tava apagando o botão remover e o jogar.
+    const texto = document.createTextNode(" " + novaHab.value.trim())
+    li.appendChild(texto)
+
 
     const ponto = document.createElement("div")
     ponto.className = "ponto"
