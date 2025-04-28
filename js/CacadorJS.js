@@ -54,12 +54,6 @@ function adicionarHabilidade () {
     const ul = document.querySelector("#skils")
     const li = document.createElement("li")
 
-    //botão para jogar o dado
-    const jogar = document.createElement("input")
-    jogar.type = "checkbox"
-    jogar.className = "jogar"
-    li.appendChild(jogar)
-
     //Botão para remover
     const remover = document.createElement("button")
     remover.textContent = "remover"
@@ -80,11 +74,13 @@ function adicionarHabilidade () {
         checkbox.type = "checkbox"
         ponto.appendChild(checkbox)
     }
+
     //Botão para remover habilidade
     remover.addEventListener("click", ()=>{
-    
-})
-ul.appendChild(li)
+        ul.removeChild(li)
+    })
+
+    ul.appendChild(li)
 }
 
 //Adicionar habilidade ao apertar enter
@@ -93,11 +89,13 @@ document.querySelector("#novaHab").addEventListener("keypress", (e)=>{
     adicionarHabilidade()
  }
 })
+
 // Função para adicionar trunfo
 function adicionarTrunfo() {
 
     const nomeTrunfoInput = document.querySelector(".descricao");
     const nomeTrunfo = nomeTrunfoInput.value.trim(); // Pega o valor do input e remove espaços
+
 
     if (nomeTrunfo === '') {
         alert("Digite um nome para seu trunfo");
@@ -111,12 +109,18 @@ function adicionarTrunfo() {
 
     const item = document.createElement("li");
     item.textContent = nomeTrunfo;
-
     item.className = "trunfo"
-
     document.getElementById("trunfo").appendChild(item);
-
     nomeTrunfoInput.value = "";
+    
+    const remover = document.createElement('button')
+    remover.textContent = "remover"
+    item.appendChild(remover)
+
+    //Botão para remover trunfo
+    remover.addEventListener("click", ()=>{
+        item.remove()
+    })
 }
 
     // Adicionar trunfo ao clicar no botão
@@ -129,33 +133,63 @@ function adicionarTrunfo() {
         }
     });
 
-function lançarDado() {
-    // Seleciona todos os checkboxes com a classe "jogar"
-    const checkboxes = document.querySelectorAll(".jogar");
-    
-    // Cria um array para armazenar os resultados dos dados
-    const dice = [];
+    function lancarDado() {
+        const valorDado = document.querySelector("#valorDado");
+        let dado = parseInt(valorDado.value); // Certifique-se de que o valor é um número inteiro
+        let dice = []; // Inicializa o array dice
 
-    if (dice.length === 0) {
-        alert("Por favor, marque pelo menos um checkbox para lançar o dado.");
-        return; // Encerra a função para não continuar
-    }
+        // Limpar os resultados anteriores
+        document.querySelector("#sucesso").innerHTML = '';
+        document.querySelector("#critico").innerHTML = '';
+        document.querySelector("#falha").innerHTML = '';
+        document.querySelector("#falhaCritica").innerHTML = '';
 
-    // Percorre todos os checkboxes
-    checkboxes.forEach(checkbox => {
-        // Se o checkbox estiver marcado, faz o lançamento do dado
-        if (checkbox.checked) {
-            // Gera um número aleatório de 1 a 10 para cada checkbox marcado
+        // Gera um número aleatório de 1 a 10, para unidade acrescida pelo usuário
+        for (let index = 0; index < dado; index++) {
             const resultado = Math.floor(Math.random() * 10) + 1;
-            dice.push(resultado); // Adiciona o resultado ao array
+            dice.push(resultado);
+    
+            // Vários resultados do Dado
+            switch (resultado) {
+            case 1:
+                dado = dado - 1; // Diminui a quantidade de lançamentos
+                const falhaCritica = document.createElement('li');
+                falhaCritica.textContent = `${resultado}`;
+                document.querySelector('#falhaCritica').appendChild(falhaCritica);
+                break;
+
+            case 10:
+                dado = dado + 1; // Aumenta a quantidade de lançamentos
+                const critico = document.createElement('li');
+                critico.textContent = `${resultado}`;
+                document.querySelector('#critico').appendChild(critico);
+                break;
+
+            default:
+                // Para os valores entre 2 e 9
+                if (resultado > 5 && resultado < 9) {
+                    const sucesso = document.createElement('li');
+                    sucesso.textContent = `${resultado}`;
+                    document.querySelector("#sucesso").appendChild(sucesso);
+                } else {
+                    const falha = document.createElement('li');
+                    falha.textContent = `${resultado}`;
+                    document.querySelector('#falha').appendChild(falha);
+                }
+                break;
         }
+    }        
+    }
+    
+    //Jogar os dados e limpar as jogadas anteriores
+    document.querySelector("#lancarDado").addEventListener('click', lancarDado)
 
-        
+    //Jogar dados apertando enter
+    document.querySelector("#lancarDados").addEventListener("keypress", (e) => {
+        if (e.key === 'Enter') {
+            lancarDado();
+        }
     });
-
-    // Exibe os dice no elemento com id "resultado"
-    document.getElementById('resultado').textContent = dice.join(', ');
-}
 
 
 

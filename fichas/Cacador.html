@@ -58,7 +58,7 @@
                     <h2>Físico</h2>
 
                     <h2>
-                        <input type="checkbox" class="jogar"> Força
+                         Força
                         <div class="ponto">
 
                             <input type="checkbox">
@@ -71,7 +71,7 @@
                     </h2>
 
                     <h2>
-                        <input type="checkbox" class="jogar"> Destreza
+                         Destreza
                         <div class="ponto">
 
                             <input type="checkbox">
@@ -84,7 +84,7 @@
                     </h2>
 
                     <h2>
-                        <input type="checkbox" class="jogar"> Vigor
+                         Vigor
                         <div class="ponto">
 
                             <input type="checkbox" class="vigor" >
@@ -102,7 +102,7 @@
 
                     <h2 class="tipo">Social</h2>
                     <h2>
-                        <input type="checkbox" class="jogar"> Carisma
+                         Carisma
                         <div class="ponto">
 
                             <input type="checkbox">
@@ -115,7 +115,7 @@
                     </h2>
 
                     <h2>
-                        <input type="checkbox" class="jogar"> Manipulação
+                         Manipulação
                         <div class="ponto">
 
                             <input type="checkbox">
@@ -128,7 +128,7 @@
                     </h2>
 
                     <h2>
-                        <input type="checkbox" class="jogar"> Autocontrole
+                         Autocontrole
                         <div class="ponto">
 
                             <input type="checkbox" class="autocontrole" >
@@ -146,7 +146,7 @@
 
                     <h2 class="titulo">Mental</h2>
                     <h2>
-                        <input type="checkbox" class="jogar">   Intelgência
+                           Intelgência
                         <div class="ponto">
 
                             <input type="checkbox">
@@ -158,7 +158,7 @@
                             </div>
                     </h2>
                     <h2>
-                        <input type="checkbox" class="jogar">   Raciocínio
+                           Raciocínio
                         <div class="ponto">
 
                         <input type="checkbox">
@@ -171,7 +171,7 @@
                     </h2>
 
                     <h2>
-                        <input type="checkbox" class="jogar">   Determinação
+                           Determinação
                     <div class="ponto">
 
                         <input type="checkbox" class="determinacao" >
@@ -236,8 +236,35 @@
        <section id="rodarDados">
 
         <h1>Lançador de Dados</h1>
-        <div id="resultado">-</div>
-        <button onclick="lançarDado()">Lançar Dado</button>
+
+        <input type="number" id="valorDado" min="1" step="1">
+        <div id="resultado">
+            <div>
+                Sucessos:
+                <ul id="sucesso">
+
+                </ul>
+            </div>
+            <div>
+                Críticos:
+                <ul id="critico">
+
+                </ul>
+            </div>
+            <div>
+                Falhas:
+                <ul id="falha">
+
+                </ul>
+            </div>
+            <div>
+                Falhas Críticas:
+                <ul id="falhaCritica">
+
+                </ul>
+            </div>
+        </div>
+        <button id="lancarDado">Lançar Dado</button>
 
        </section>
 
