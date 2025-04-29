@@ -114,17 +114,14 @@ function adicionarTrunfo() {
     nomeTrunfoInput.value = "";
     
     const remover = document.createElement('button')
-    remover.textContent = "remover"
-    item.appendChild(remover)
+    remover.textContent = "remover";
+    item.appendChild(remover);
 
     //Botão para remover trunfo
     remover.addEventListener("click", ()=>{
         item.remove()
     })
 }
-
-    // Adicionar trunfo ao clicar no botão
-    document.querySelector(".adicionar").addEventListener("click", adicionarTrunfo);
 
     // Adicionar trunfo ao pressionar a tecla Enter
     document.querySelector(".descricao").addEventListener("keypress", (e) => {
@@ -136,18 +133,28 @@ function adicionarTrunfo() {
     function lancarDado() {
         const valorDado = document.querySelector("#valorDado");
         let dado = parseInt(valorDado.value); // Certifique-se de que o valor é um número inteiro
+
+        if (dado > 100) {  // Verifica se o número de dados é maior que 100 a cada iteração
+            alert("O número de dados não pode ser maior que 100!");
+            return;
+        }
+
         let dice = []; // Inicializa o array dice
 
         // Limpar os resultados anteriores
         document.querySelector("#sucesso").innerHTML = '';
         document.querySelector("#critico").innerHTML = '';
-        document.querySelector("#falha").innerHTML = '';
         document.querySelector("#falhaCritica").innerHTML = '';
 
         // Gera um número aleatório de 1 a 10, para unidade acrescida pelo usuário
         for (let index = 0; index < dado; index++) {
             const resultado = Math.floor(Math.random() * 10) + 1;
             dice.push(resultado);
+
+            if (dado > 100) {  // Verifica se o número de dados é maior que 100 a cada iteração
+                alert("O número de dados não pode ser maior que 100!");
+                break;  // Interrompe o loop caso o número de dados ultrapasse 100
+            }
     
             // Vários resultados do Dado
             switch (resultado) {
@@ -167,16 +174,11 @@ function adicionarTrunfo() {
 
             default:
                 // Para os valores entre 2 e 9
-                if (resultado > 5 && resultado < 9) {
+                if (resultado >=6 && resultado < 9) {
                     const sucesso = document.createElement('li');
                     sucesso.textContent = `${resultado}`;
                     document.querySelector("#sucesso").appendChild(sucesso);
-                } else {
-                    const falha = document.createElement('li');
-                    falha.textContent = `${resultado}`;
-                    document.querySelector('#falha').appendChild(falha);
-                }
-                break;
+                } 
         }
     }        
     }

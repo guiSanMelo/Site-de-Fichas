@@ -1,4 +1,4 @@
-/*
+
 body {
     background-color: whitesmoke;
     padding-left: 400px;
@@ -6,92 +6,101 @@ body {
     font-family: Arial;
     font-size: small;
     justify-self: center;
+    display: block;
 }
 
 #cabecalho {
- display: grid ;
- justify-items: center;
- border: 10 px;
- border-radius: 5cm;
-
- input {
-    border: 0cm;
-    border-bottom: 2px solid gray;
- }
-}
-
-.titulo {
-    display: grid;
-    border-bottom: 5px solid lightgray ;
-    color: orangered;
-    font-size: x-large;
-    justify-self: start;
-}
-
-.item1 {
-    display: flex ;
- }
- .item2 {
-    display: flex;
- }
- .item3 {
-    display: flex;
-    justify-content: start;
-    div{
-        justify-content: start;
-    }
-    input {
-        width: 200px;
-    }
- }
-
- #atributos{
-    display: grid;
-
-    .ponto {
-        margin-left: 25px;
-    }
-    .titulo {
-        grid-column: 1/4;
-    }
-
-   
- }
-
-#fisico {
-    display: flex;
-    position: relative; top: 30px; right: 30px;
-    justify-items: start;
-    margin: 50px;
-
-    h2{
-        display: flex;
-        justify-self:center ;
-    }
-
+    display: block;
     
-
+    .item {
+        display: flex;
+    }
 }
 
-#social {
-    position: relative; top: 30px; right: 30px;
-    justify-items: start;
-    margin: 50px;
-    border-right: 5px solid lightgray;
-    border-left: 5px solid lightgray;
-    .tipo{
+#atributos{
+    display:grid;
+    grid-column: 1fr, 1fr, 1fr;
+    .titulo{
+        grid-column: span 3;
+        justify-self: start;
+    }
+    #fisico{
+        grid-column: 1;
+        grid-row: 2;
+        
+    }
+    #social {
+        grid-column: 2;
+        grid-row: 2;
+        border: left width 10px, lightgray ;
+    }
+    #mental{
+        grid-column: 3;
+        grid-row: 2;
+    }
+    #especial{
         display: flex;
-        justify-self: center;
+        justify-content: center;
+        gap: 80px;
+        grid-column: span 3;
+    }    
+    
+}
+
+#habilidades {
+    display: grid;
+
+    .titulo{
+        grid-column: span 3;
+        grid-row: 1;
+        justify-self: start;
+    }
+    #hab{
+        grid-column:span 3;
+        grid-row: 2;
+
+        display: grid;
+        grid-column: repeat(3, 1fr) ;
     }
 
 }
 
-#mental {
-    position: relative; top: 30px; right: 30px;
-    justify-items: start;
-    margin: 50px;
-    .tipo{
-        display: flex;
-        justify-self: center;
-    }
+#trunfoDistincoes{
+    display: grid;
 }
+
+#rolarDados {
+    display: flexbox;
+
+    .titulo{
+        grid-column: span 3;
+        grid-row: 1;
+    }
+    #resultado {
+        grid-column: span 3;
+        grid-row: 2;
+        justify-self: center;
+
+        display: flex;
+       /* grid-template-columns: repeat(3, 1fr);
+        grid-template-rows: 1, 1fr;
+        .titulo{
+            grid-row: 1;
+            grid-column: span 3;
+        }
+        #res1{
+            grid-row: 2;
+            grid-column: 1;
+        }
+        #res2{
+            grid-column: 2;
+            grid-row: 2;
+        }
+        #res3{
+            grid-row: 2;
+            grid-column: 3;
+        }*/
+    }
+
+}
+

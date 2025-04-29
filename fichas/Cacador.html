@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="/css/CacadorCSS.css">
+    <link rel="stylesheet" href="/css/Cacador.css">
     <title>Document</title>
 </head>
 <body>
@@ -12,7 +12,7 @@
 
         <h1 class="titulo">Ficha de Personagem:</h1>
     
-        <h2 class="item1">
+        <h2 class="item">
 
                 <div>
                     Nome:  <input type="text">
@@ -26,7 +26,7 @@
                     Credo:   <input type="text">
                 </div>
         </h2>
-        <h2 class="item2">
+        <h2 class="item">
 
             <div>
                 Célula:   <input type="text">
@@ -39,7 +39,7 @@
             </div>
 
         </h2>
-        <h2 class="item3">
+        <h2 class="item">
                 <div>
                     Ímpeto: <input type="text">
                 </div>
@@ -49,7 +49,7 @@
         </h2>
     </section>
     
-        <section id="atributos">
+       <section id="atributos">
 
                 <h1 class="titulo">Atributos:</h1>
 
@@ -206,24 +206,25 @@
         </section>
     
        <section id="habilidades">
-            <h1 class="titulo">Habilidades</h1>
-            <input type="text" id="novaHab">
+            <h1 class="titulo">
+                Habilidades
+                <input type="text" id="novaHab">
+            </h1>
+            
 
              <div id="hab">
                 <ul id="skils">
 
                 </ul>
              </div>
-    
+             
        </section>
     
        <section id="trunfoDistincoes">
 
-        <h1 id="titulo">Trunfos e Distinções</h1>
-
-    
-        <input type="text" class="descricao">
-        <button class="adicionar">Adicionar</button>
+        <h1 id="titulo">
+            Trunfos e Distinções<input type="text" class="descricao">
+        </h1>
 
         <ul id="trunfo">
 
@@ -235,36 +236,33 @@
 
        <section id="rodarDados">
 
-        <h1>Lançador de Dados</h1>
+        <h1 class="titulo">
+            <p> Lançador de Dados</p> 
+            <input type="number" id="valorDado" min="1" step="1" max="100">
+        </h1>
 
-        <input type="number" id="valorDado" min="1" step="1">
+        <button id="lancarDado">Lançar Dado</button>
+      
         <div id="resultado">
-            <div>
+            <div id="res1">
                 Sucessos:
                 <ul id="sucesso">
 
                 </ul>
             </div>
-            <div>
+            <div id="res2">
                 Críticos:
                 <ul id="critico">
 
                 </ul>
             </div>
-            <div>
-                Falhas:
-                <ul id="falha">
-
-                </ul>
-            </div>
-            <div>
+            <div id="res3">
                 Falhas Críticas:
                 <ul id="falhaCritica">
 
                 </ul>
             </div>
         </div>
-        <button id="lancarDado">Lançar Dado</button>
 
        </section>
 
